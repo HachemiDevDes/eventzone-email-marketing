@@ -1,0 +1,26 @@
+.input {
+  background: var(--surface-dark);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  height: 52px;
+  color: var(--text-primary);
+  font-family: var(--font-space-grotesk);
+  font-size: 15px;
+  font-weight: 400;
+  padding: 0 16px;
+  outline: none;
+  transition: border-color 150ms ease-in;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.input:focus {
+  border-color: var(--accent-electric);
+}
+
+.input.error {
+  border-color: var(--status-error);
+}

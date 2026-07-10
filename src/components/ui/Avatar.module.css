@@ -1,0 +1,19 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-elevated);
+  border: 2px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.avatar.connected {
+  border-color: var(--accent-electric);
+}
+
+.initials {
+  color: var(--accent-electric);
+  font-family: var(--font-space-grotesk);
+  font-weight: 600;
+  text-transform: uppercase;
+}

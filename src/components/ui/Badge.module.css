@@ -1,0 +1,30 @@
+.badge {
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-family: var(--font-space-grotesk);
+  font-weight: 500;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success {
+  background: var(--status-success-bg);
+  color: var(--status-success);
+}
+
+.warning {
+  background: var(--status-warning-bg);
+  color: var(--status-warning);
+}
+
+.error {
+  background: var(--status-error-bg);
+  color: var(--status-error);
+}
+
+.info {
+  background: var(--status-info-bg);
+  color: var(--accent-electric);
+}
