@@ -1,8 +1,7 @@
 .sidebar {
-  width: 260px;
+  width: 250px;
   height: 100vh;
   background-color: var(--surface-elevated);
-  border-right: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
   position: sticky;
@@ -10,27 +9,74 @@
   left: 0;
   z-index: 40;
   transition: width 0.3s ease;
+  border-right: 1px solid var(--border-subtle);
 }
 
 .header {
-  height: 64px;
+  height: 72px;
   padding: 0 var(--spacing-lg);
   display: flex;
-  alignItems: center;
-  font-weight: 700;
-  font-size: 18px;
+  align-items: center;
+  font-weight: 800;
+  font-size: 24px;
   color: var(--text-primary);
-  border-bottom: 1px solid transparent; /* Keeps spacing consistent if we add border later */
-  margin-bottom: var(--spacing-md);
+  letter-spacing: -0.5px;
+}
+
+.workspaceBlock {
   display: flex;
   align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin: 0 var(--spacing-md) var(--spacing-md);
+  gap: var(--spacing-sm);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.workspaceBlock:hover {
+  background-color: var(--border-subtle);
+}
+
+.workspaceIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: #F3F4F6;
+  border-radius: 8px;
+  color: var(--text-secondary);
+}
+
+.workspaceInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.workspaceName {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.workspacePlan {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+
+.workspaceChevron {
+  color: var(--text-secondary);
 }
 
 .nav {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: 2px;
   padding: 0 var(--spacing-md);
 }
 
@@ -38,14 +84,13 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
-  height: 40px;
+  height: 44px;
   padding: 0 var(--spacing-md);
-  border-radius: 6px;
-  color: var(--text-secondary);
+  border-radius: 12px; /* pill shape */
+  color: var(--text-primary);
   font-weight: 500;
   font-size: 14px;
   transition: all 0.2s ease-out;
-  border-left: 3px solid transparent;
 }
 
 .navItem svg {
@@ -54,52 +99,64 @@
 }
 
 .navItem:hover {
-  background-color: var(--glass-bg);
-  color: var(--text-primary);
-}
-
-.navItem:hover svg {
-  color: var(--text-primary);
+  background-color: #F3F4F6;
 }
 
 .navItemActive {
   background-color: var(--status-info-bg);
-  color: var(--text-primary);
-  border-left: 3px solid var(--accent-electric);
-  /* slight negative margin to offset the border so the padding remains visually aligned, or adjust padding */
-  padding-left: calc(var(--spacing-md) - 3px);
+  color: var(--accent-electric);
+  font-weight: 600;
 }
 
 .navItemActive svg {
-  color: var(--text-primary);
+  color: var(--accent-electric);
 }
 
 .footer {
   padding: var(--spacing-md);
-  border-top: 1px solid var(--border-subtle);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
 }
 
 .account {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
-  color: var(--text-primary);
-  font-size: 14px;
-  font-weight: 500;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.account:hover {
+  background-color: #F3F4F6;
+}
+
+.accountNameBlock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .accountName {
-  flex: 1;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.accountEmail {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.accountSub {
-  font-size: 12px;
+.accountChevron {
   color: var(--text-secondary);
 }
 
@@ -117,6 +174,16 @@
   .headerText {
     display: none;
   }
+
+  .workspaceBlock {
+    margin: 0 8px 16px;
+    padding: 8px;
+    justify-content: center;
+  }
+
+  .workspaceInfo, .workspaceChevron {
+    display: none;
+  }
   
   .navItem {
     padding: 0;
@@ -128,17 +195,11 @@
     display: none;
   }
 
-  .navItemActive {
-    padding-left: 0;
-    border-left: none;
-    background-color: var(--status-info-bg);
-  }
-  
   .account {
     justify-content: center;
   }
   
-  .accountName, .accountSub {
+  .accountNameBlock, .accountChevron {
     display: none;
   }
 }

@@ -1,13 +1,13 @@
 :root {
   /* Color System */
-  --bg-navy: #0B0F19;
-  --surface-dark: #1A1E2E;
-  --surface-elevated: #242838;
+  --bg-navy: #F4F6F8;
+  --surface-dark: #FFFFFF;
+  --surface-elevated: #FFFFFF;
   --accent-electric: #1A73E8;
   --accent-bright: #2D7EFF;
-  --text-primary: #FFFFFF;
-  --text-secondary: #8A94A6;
-  --text-tertiary: #4A5568;
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --text-tertiary: #9CA3AF;
   
   --status-success: #10B981;
   --status-success-bg: rgba(16, 185, 129, 0.15);
@@ -17,10 +17,10 @@
   --status-error-bg: rgba(239, 68, 68, 0.15);
   --status-info-bg: rgba(26, 115, 232, 0.15);
   
-  --border-subtle: #2A2F3E;
+  --border-subtle: #E5E7EB;
   
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: #FFFFFF;
+  --glass-border: #E5E7EB;
 
   /* Spacing System */
   --spacing-xs: 4px;
@@ -37,7 +37,7 @@
 
 html {
   height: 100%;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {

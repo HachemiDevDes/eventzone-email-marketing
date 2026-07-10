@@ -2,14 +2,16 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Mail, LayoutTemplate, Users, List, Settings, LogOut, UserCircle } from 'lucide-react';
+import { Home, PlusSquare, Network, CreditCard, Bot, Link as LinkIcon, Lock, ChevronDown, UserCircle, Settings, LogOut, ChevronUp, ChevronsUpDown } from 'lucide-react';
 import styles from './Sidebar.module.css';
 
 const navItems = [
-  { href: '/campaigns', label: 'Campaigns', icon: Mail },
-  { href: '/templates', label: 'Templates', icon: LayoutTemplate },
-  { href: '/lists', label: 'Lists', icon: List },
-  { href: '/contacts', label: 'Contacts', icon: Users },
+  { href: '/', label: 'Overview', icon: Home },
+  { href: '/campaigns/new', label: 'Create campaign', icon: PlusSquare },
+  { href: '/automation', label: 'Automation', icon: Network },
+  { href: '/subscriptions', label: 'Subscriptions', icon: CreditCard },
+  { href: '/chatbot', label: 'AI Chatbot', icon: Bot },
+  { href: '/integrations', label: 'Integrations', icon: LinkIcon },
 ];
 
 export function Sidebar() {
@@ -18,12 +20,27 @@ export function Sidebar() {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.header}>
-        <span className={styles.headerText}>Eventzone Email</span>
+        <span className={styles.headerText}>emitly</span>
+      </div>
+
+      <div className={styles.workspaceBlock}>
+        <div className={styles.workspaceIcon}>
+          <Lock size={14} />
+        </div>
+        <div className={styles.workspaceInfo}>
+          <div className={styles.workspaceName}>My Workspace</div>
+          <div className={styles.workspacePlan}>Free plan</div>
+        </div>
+        <ChevronDown size={16} className={styles.workspaceChevron} />
       </div>
 
       <nav className={styles.nav}>
         {navItems.map((item) => {
-          const isActive = pathname?.startsWith(item.href);
+          // Special case for root path to avoid it always being active
+          const isActive = item.href === '/' 
+            ? pathname === '/' 
+            : pathname?.startsWith(item.href);
+            
           const Icon = item.icon;
 
           return (
@@ -32,7 +49,7 @@ export function Sidebar() {
               href={item.href}
               className={`${styles.navItem} ${isActive ? styles.navItemActive : ''}`}
             >
-              <Icon size={20} />
+              <Icon size={18} />
               <span className={styles.navItemLabel}>{item.label}</span>
             </Link>
           );
@@ -41,19 +58,12 @@ export function Sidebar() {
 
       <div className={styles.footer}>
         <div className={styles.account}>
-          <UserCircle size={32} style={{ color: 'var(--text-secondary)' }} />
-          <div className={styles.accountName}>
-            <div>Workspace User</div>
-            <div className={styles.accountSub}>Admin</div>
+          <UserCircle size={36} style={{ color: 'var(--text-secondary)' }} />
+          <div className={styles.accountNameBlock}>
+            <div className={styles.accountName}>James Passaquindici</div>
+            <div className={styles.accountEmail}>jamespass@emi.com</div>
           </div>
-        </div>
-        <div style={{ display: 'flex', gap: 'var(--spacing-xs)', marginTop: 'var(--spacing-sm)' }}>
-          <button className={`${styles.navItem} ${styles.navItemLabel}`} style={{ flex: 1, padding: '0 8px', height: 32, fontSize: 13 }}>
-            <Settings size={16} /> Settings
-          </button>
-          <button className={`${styles.navItem} ${styles.navItemLabel}`} style={{ flex: 1, padding: '0 8px', height: 32, fontSize: 13 }}>
-            <LogOut size={16} /> Logout
-          </button>
+          <ChevronsUpDown size={14} className={styles.accountChevron} />
         </div>
       </div>
     </aside>
