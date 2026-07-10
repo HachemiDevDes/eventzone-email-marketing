@@ -83,7 +83,10 @@ export async function sendCampaign(campaignId: string) {
   let successCount = 0;
 
   for (const member of members || []) {
-    const contact = member.contacts;
+    // Supabase TS inference sometimes types relationships as arrays. We handle both cases safely.
+    const contactData = Array.isArray(member.contacts) ? member.contacts[0] : member.contacts;
+    const contact = contactData as any;
+    
     if (!contact || !contact.email) continue;
 
     // We process the HTML to inject tracking pixels and rewrite URLs
