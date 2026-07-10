@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { GlassContainer } from '../ui/GlassContainer';
 import { Button } from '../ui/Button';
 import { Input } from '../ui/Input';
+import { Badge } from '../ui/Badge';
 import { ContentBlock, compileEmailHtml } from '@/utils/emailCompiler';
 import { GripVertical, Trash2, Image as ImageIcon, Type, Link as LinkIcon, Minus, Box } from 'lucide-react';
 import { saveTemplate } from '@/app/templates/actions';
