@@ -2,16 +2,15 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, PlusSquare, Network, CreditCard, Bot, Link as LinkIcon, Lock, ChevronDown, UserCircle, Settings, LogOut, ChevronUp, ChevronsUpDown } from 'lucide-react';
+import { Home, PlusSquare, Network, Users, LayoutTemplate, Lock, ChevronDown, UserCircle, ChevronsUpDown } from 'lucide-react';
 import styles from './Sidebar.module.css';
 
 const navItems = [
   { href: '/', label: 'Overview', icon: Home },
   { href: '/campaigns/new', label: 'Create campaign', icon: PlusSquare },
+  { href: '/templates', label: 'Templates', icon: LayoutTemplate },
   { href: '/automation', label: 'Automation', icon: Network },
-  { href: '/subscriptions', label: 'Subscriptions', icon: CreditCard },
-  { href: '/chatbot', label: 'AI Chatbot', icon: Bot },
-  { href: '/integrations', label: 'Integrations', icon: LinkIcon },
+  { href: '/contacts', label: 'Contacts', icon: Users },
 ];
 
 export function Sidebar() {

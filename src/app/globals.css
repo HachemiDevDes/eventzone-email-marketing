@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@400;500;600;700;800&display=swap');
+
 :root {
   /* Color System */
   --bg-navy: #F4F6F8;
@@ -32,7 +34,7 @@
   --screen-padding: 20px;
 
   /* Typography */
-  --font-space-grotesk: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-main: 'Stack Sans Headline', system-ui, sans-serif;
 }
 
 html {
@@ -46,7 +48,7 @@ body {
   flex-direction: column;
   background-color: var(--bg-navy);
   color: var(--text-primary);
-  font-family: var(--font-space-grotesk);
+  font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
